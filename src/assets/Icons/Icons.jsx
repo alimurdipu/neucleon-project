@@ -9,11 +9,10 @@ import {
   FaFilter,
   FaDownload,
   FaBuilding,
-  // FaAngleDown,
-  // FaChevronDown, 
-  // FaPlus, 
-  // FaSearch,
-  // FiMonitor
+  FaAngleDown,
+  FaChevronDown, 
+  FaPlus, 
+  FaSearch,
 } from "react-icons/fa";
 import { BsHeartPulseFill } from "react-icons/bs";
 import { GrAttachment } from "react-icons/gr";
@@ -46,5 +45,10 @@ export {
   RiBankFill,
   FaLockOpen,
   FaUser,
-  MdInsertChart
+  MdInsertChart,
+  FaAngleDown,
+  FaChevronDown, 
+  FaPlus, 
+  FaSearch,
+  HiRefresh
 };
