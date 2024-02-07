@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import {
+  FaAngleDown,
+  FaAngleUp,
   FaDownload,
   FaFile,
   FaFileCsv,
@@ -7,9 +9,12 @@ import {
   FaList,
   FaObjectUngroup,
 } from "react-icons/fa";
-import './BankModal.css'
+// import Select from 'react-dropdown-select';
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { FaShareFromSquare } from "react-icons/fa6";
+import "./BankModal.css";
 import { FiMonitor } from "react-icons/fi";
-import { IoMdArrowDropdown } from "react-icons/io";
+import { IoIosArrowUp, IoMdArrowDropdown } from "react-icons/io";
 import { FaChevronDown, FaPlus, FaSearch } from "react-icons/fa";
 import { SiProtondb } from "react-icons/si";
 import SectionContainer from "../../components/ui/SectionContainer/SectionContainer";
@@ -17,9 +22,32 @@ import SectionContainer from "../../components/ui/SectionContainer/SectionContai
 import { FaBuilding } from "react-icons/fa";
 import Modal from "../../components/ui/Modal/Modal";
 import { MdDelete } from "react-icons/md";
+import Select from "react-dropdown-select";
 
 const BankModal = () => {
   const [showModal, setShowModal] = useState(true);
+  const options = [
+    { 
+      value: 1,
+      label: "Leanne Graham"
+    },
+    {
+      value: 2,
+      label: "Ervin Howell"
+    },
+    {
+      value: 3,
+      label: "Dipu"
+    },
+    {
+      value: 4,
+      label: "Razi"
+    },
+    {
+      value: 5,
+      label: "Alimur"
+    }
+  ];
   return (
     <>
       {/* <div className="bg-white">
@@ -134,9 +162,124 @@ const BankModal = () => {
                 </div>
               </div>
             </div>
-          <div className="border border-secondary w-80 bg-yellow-400">
-            <input class="input" className="h-full w-full p-1 border border-red-500" type="text" placeholder="Description" />
+            <div className="border border-secondary w-80">
+              <input
+                class="input"
+                className="h-full w-full p-1"
+                type="text"
+                placeholder="Description"
+              />
+            </div>
           </div>
+          <div className="flex justify-between items-center p-1">
+            <div className="flex items-center gap-1">
+              <FaList /> Rules
+            </div>
+            <div className="bg-secondary rounded-sm p-1">
+              <button>+ New Rule</button>
+            </div>
+          </div>
+          <div>
+            <div className="">
+              <table className="w-full mx-auto text-left">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-3">#</th>
+                    <th>Source</th>
+                    <th>Type</th>
+                    <th>Target</th>
+                    <th>Action</th>
+                    <th>Open</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td>
+                      <div className="flex gap-1">
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaPlus />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaShareFromSquare />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaAngleUp />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaAngleDown />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="border border-red-500 p-1 rounded-sm">
+                            <RiDeleteBin5Line className="text-red-500" />
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <Select
+                        multi
+                        options={options}
+                      />
+                    </td>
+                    <td>                      
+                      <Select
+                        multi
+                        options={options}
+                      />
+                    </td>
+                    <td>
+                    <Select
+                        multi
+                        options={options}
+                      />
+                    </td>
+                    <td>
+                    <Select
+                        multi
+                        options={options}
+                      />
+                    </td>
+                    <td>
+                      <div className="flex gap-1">
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaPlus />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaShareFromSquare />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaAngleUp />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaAngleDown />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="border border-red-500 p-1 rounded-sm">
+                            <RiDeleteBin5Line className="text-red-500" />
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </SectionContainer>
       </div>

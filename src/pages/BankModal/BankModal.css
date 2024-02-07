@@ -3,4 +3,9 @@
     right: 0px;
     left: 0px;
     bottom: 0px;
+};
+
+.react-dropdown-select-option{
+    color:rgb(113, 161, 161);
+    width: 260px;
 }
