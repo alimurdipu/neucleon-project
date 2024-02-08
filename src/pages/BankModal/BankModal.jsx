@@ -2,24 +2,27 @@ import React, { useState } from "react";
 import {
   FaAngleDown,
   FaAngleUp,
-  FaDownload,
+  FaArchive,
+  FaBan,
+  FaCheck,
+  FaCommentDots,
   FaFile,
   FaFileCsv,
-  FaFilter,
+  FaInfoCircle,
   FaList,
+  FaMicrophone,
   FaObjectUngroup,
+  FaShieldAlt,
+  FaUnlock,
+  FaUnlockAlt,
 } from "react-icons/fa";
-// import Select from 'react-dropdown-select';
+import { IoChatboxSharp } from "react-icons/io5";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaShareFromSquare } from "react-icons/fa6";
 import "./BankModal.css";
-import { FiMonitor } from "react-icons/fi";
-import { IoIosArrowUp, IoMdArrowDropdown } from "react-icons/io";
-import { FaChevronDown, FaPlus, FaSearch } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import { SiProtondb } from "react-icons/si";
 import SectionContainer from "../../components/ui/SectionContainer/SectionContainer";
-// import {FaObjectUngroup} from '../../assets/Icons/Icons';
-import { FaBuilding } from "react-icons/fa";
 import Modal from "../../components/ui/Modal/Modal";
 import { MdDelete } from "react-icons/md";
 import Select from "react-dropdown-select";
@@ -27,82 +30,29 @@ import Select from "react-dropdown-select";
 const BankModal = () => {
   const [showModal, setShowModal] = useState(true);
   const options = [
-    { 
+    {
       value: 1,
-      label: "Leanne Graham"
+      label: "Leanne Graham",
     },
     {
       value: 2,
-      label: "Ervin Howell"
+      label: "Ervin Howell",
     },
     {
       value: 3,
-      label: "Dipu"
+      label: "Dipu",
     },
     {
       value: 4,
-      label: "Razi"
+      label: "Razi",
     },
     {
       value: 5,
-      label: "Alimur"
-    }
+      label: "Alimur",
+    },
   ];
   return (
     <>
-      {/* <div className="bg-white">
-        <h2 className="flex items-center gap-1">
-          <FaObjectUngroup /> Update Object
-        </h2>
-        <div className="flex justify-between">
-          <div className="flex items-center gap-1">
-            <button className="flex justify-between gap-1 rounded-sm bg-secondary text-sm w-40 p-1">
-              Hostname{" "}
-              <span className="p-1">
-                <FaChevronDown />
-              </span>
-            </button>
-            <input
-              type="text"
-              name=""
-              id=""
-              className="border border-info w-80 p-1"
-            />
-          </div>
-          <div className="flex items-center gap-1">
-            <button className="flex justify-items-center gap-1 rounded-sm bg-info text-sm p-1">
-              <span className="p-1">
-                <FaSearch />
-              </span>
-              Search
-            </button>
-            <button className="flex gap-1 rounded-sm bg-secondary text-sm p-1">
-              2/2 results
-            </button>
-            <button className="flex justify-items-center gap-1 rounded-sm bg-secondary text-sm p-1">
-              <span className="p-1">
-                <FaFilter />
-              </span>
-              Add filter
-            </button>
-            <button className="flex justify-items-center gap-1 rounded-sm bg-secondary text-sm p-1">
-              <span className="p-1">
-                <FaList />
-              </span>
-              Columns
-              <span className="p-1">
-                <IoMdArrowDropdown />
-              </span>
-            </button>
-            <button className="flex justify-between gap-1 rounded-sm bg-secondary text-sm p-1">
-              <span className="p-1">
-                <FaDownload />
-              </span>
-            </button>
-          </div>
-        </div>
-      </div> */}
-
       {/* 2nd modal */}
       <div className="my-2">
         <SectionContainer
@@ -110,16 +60,16 @@ const BankModal = () => {
           className={"w-full"}
           title={"Update Application"}
         >
-          <div className="flex gap-5">
+          <div className="flex md:flex-row flex-col gap-5">
             <div className="border border-secondary rounded-lg w-20 h-16">
               <button className="w-full flex justify-center">
                 <SiProtondb className="text-xl" />
               </button>
             </div>
             <div className="space-y-2">
-              <div className="flex gap-4">
+              <div className="flex md:flex-row flex-col gap-4">
                 <div className="flex items-center">
-                  <div className="w-32">
+                  <div className="md:w-32 w-[90px]">
                     <p className="font-bold">Name</p>
                   </div>
                   <div>
@@ -133,7 +83,7 @@ const BankModal = () => {
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-32">
+                  <div className="md:w-32 w-[90px]">
                     <p className="font-bold">Priority</p>
                   </div>
                   <div>
@@ -147,14 +97,14 @@ const BankModal = () => {
                   </div>
                 </div>
                 <div>
-                  <p>Description</p>
+                  <p className="font-bold md:block hidden">Description</p>
                 </div>
               </div>
               <div className="flex">
-                <div className="w-[155px]">
+                <div className="lg:w-[150px] md:w-[80px] w-[90px]">
                   <p className="font-bold">Policies</p>
                 </div>
-                <div className="w-full">
+                <div className="md:w-full ">
                   <input
                     type="text"
                     className="border border-secondary w-full p-1"
@@ -162,13 +112,18 @@ const BankModal = () => {
                 </div>
               </div>
             </div>
-            <div className="border border-secondary w-80">
-              <input
-                class="input"
-                className="h-full w-full p-1"
-                type="text"
-                placeholder="Description"
-              />
+            <div className="flex">
+              <div className="lg:w-[155px] w-[130px] md:hidden block ">
+                <p className="font-bold">Description</p>
+              </div>
+              <div className="border border-secondary lg:w-80 md:w-44 w-full">
+                <input
+                  class="input"
+                  className="h-full w-full p-1"
+                  type="text"
+                  placeholder="Description"
+                />
+              </div>
             </div>
           </div>
           <div className="flex justify-between items-center p-1">
@@ -180,7 +135,7 @@ const BankModal = () => {
             </div>
           </div>
           <div>
-            <div className="">
+            <div>
               <table className="w-full mx-auto text-left">
                 <thead>
                   <tr className="border-b">
@@ -198,7 +153,7 @@ const BankModal = () => {
                       <div className="flex gap-1">
                         <div>
                           <button className="bg-secondary p-1 rounded-sm">
-                            <FaPlus />
+                            <FaInfoCircle />
                           </button>
                         </div>
                         <div>
@@ -224,34 +179,48 @@ const BankModal = () => {
                       </div>
                     </td>
                     <td>
-                      <Select
-                        multi
-                        options={options}
-                      />
-                    </td>
-                    <td>                      
-                      <Select
-                        multi
-                        options={options}
-                      />
+                      <Select multi options={options} />
                     </td>
                     <td>
-                    <Select
-                        multi
-                        options={options}
-                      />
+                      <Select multi options={options} />
                     </td>
                     <td>
-                    <Select
-                        multi
-                        options={options}
-                      />
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
                     </td>
                     <td>
                       <div className="flex gap-1">
                         <div>
                           <button className="bg-secondary p-1 rounded-sm">
-                            <FaPlus />
+                          <FaMicrophone />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaUnlockAlt />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaUnlock />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaCheck />
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="border-b">
+                  <td>
+                      <div className="flex gap-1">
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaInfoCircle />
                           </button>
                         </div>
                         <div>
@@ -274,6 +243,183 @@ const BankModal = () => {
                             <RiDeleteBin5Line className="text-red-500" />
                           </button>
                         </div>
+                      </div>
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <div className="flex gap-1">
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaMicrophone />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaShieldAlt />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaArchive />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaBan />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <IoChatboxSharp />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaCommentDots />
+                          </button>
+                        </div>
+                        
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="border-b">
+                  <td>
+                      <div className="flex gap-1">
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaInfoCircle />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaShareFromSquare />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaAngleUp />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaAngleDown />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="border border-red-500 p-1 rounded-sm">
+                            <RiDeleteBin5Line className="text-red-500" />
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <div className="flex gap-1">
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaMicrophone />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaUnlockAlt />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaUnlock />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaCheck />
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="border-b">
+                  <td>
+                      <div className="flex gap-1">
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaInfoCircle />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaShareFromSquare />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaAngleUp />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                            <FaAngleDown />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="border border-red-500 p-1 rounded-sm">
+                            <RiDeleteBin5Line className="text-red-500" />
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <Select multi options={options} />
+                    </td>
+                    <td>
+                      <div className="flex gap-1">
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaMicrophone />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaShieldAlt />
+                          </button>
+                        </div>
+                        <div>
+                          <button className="bg-secondary p-1 rounded-sm">
+                          <FaCommentDots />
+                          </button>
+                        </div>
+                        
                       </div>
                     </td>
                   </tr>
@@ -305,9 +451,7 @@ const BankModal = () => {
                 />
               </div>
               <div className="flex items-center gap-1">
-                <p className="flex justify-between gap-1text-sm w-40 p-1">
-                  Description
-                </p>
+                <p className="flex justify-between w-40 p-1">Description</p>
                 <input
                   type="text"
                   name=""
@@ -317,9 +461,7 @@ const BankModal = () => {
                 />
               </div>
               <div className="flex items-center gap-1">
-                <p className="flex justify-between gap-1text-sm w-40 p-1">
-                  Type
-                </p>
+                <p className="flex justify-between w-40 p-1">Type</p>
                 <input
                   type="text"
                   name=""
@@ -329,9 +471,7 @@ const BankModal = () => {
                 />
               </div>
               <div className="flex items-center gap-1">
-                <p className="flex justify-between gap-1text-sm w-40 p-1">
-                  Device
-                </p>
+                <p className="flex justify-between w-40 p-1">Device</p>
                 <input
                   type="file"
                   name=""
@@ -341,16 +481,14 @@ const BankModal = () => {
               </div>
               <div className="flex items-center gap-1">
                 <div>
-                  <p className="flex justify-between gap-1 text-sm w-32 p-1">
-                    Path
-                  </p>
+                  <p className="flex justify-between w-28 lg:w-32 p-1">Path</p>
                 </div>
                 <div className="">
                   <input
                     type="text"
                     name=""
                     id=""
-                    className="border border-secondary w-80"
+                    className="border border-secondary w-68 lg:w-80"
                   />
                 </div>
                 <div className="w-full flex justify-end">
@@ -361,14 +499,14 @@ const BankModal = () => {
               </div>
               <div className="flex items-center gap-1">
                 <div>
-                  <p className="w-32"></p>
+                  <p className="w-28 lg:w-32"></p>
                 </div>
                 <div>
                   <input
                     type="text"
                     name=""
                     id=""
-                    className="border border-secondary w-80"
+                    className="border border-secondary lg:w-80"
                   />
                 </div>
                 <div className="w-full flex justify-end">
@@ -379,12 +517,15 @@ const BankModal = () => {
               </div>
               <div className="flex items-center gap-1">
                 <div>
-                  <p className="w-32">Hash</p>
+                  <p className="w-28 lg:w-32">Hash</p>
                 </div>
                 <div className="w-full h-12 border border-dotted border-secondary hover:border-info">
-                  <div className="w-[318px] gap-2 flex justify-center items-center">
+                  <div className="w-[180px] lg:w-[318px] gap-2 flex justify-center items-center relative">
                     <FaFile /> File
-                    <input type="file" />
+                    <input
+                      className="top-0 bottom-0 left-0 right-0 absolute opacity-0"
+                      type="file"
+                    />
                   </div>
                 </div>
                 <div className="w-full flex justify-end">
@@ -393,14 +534,6 @@ const BankModal = () => {
                   </button>
                 </div>
               </div>
-              {/* middile file */}
-              {/* <div className="h-20 w-[730px] m-4  border-dotted border-4  rounded-xl">
-                <div className="flex justify-center gap-4 items-center h-[120px]">
-                  Drag & Drop Hare
-                  <input type="file" className="appearance-none border-none" />
-                </div>
-              </div> */}
-              {/* middile file end */}
               <div className="flex items-center gap-1">
                 <p className="flex justify-between gap-1text-sm w-40 p-1">
                   Command Line
