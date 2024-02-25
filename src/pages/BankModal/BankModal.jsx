@@ -28,7 +28,10 @@ import { MdDelete } from "react-icons/md";
 import Select from "react-dropdown-select";
 
 const BankModal = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal =() =>{
+    setShowModal(true)
+  }
   const options = [
     {
       value: 1,
@@ -51,6 +54,7 @@ const BankModal = () => {
       label: "Alimur",
     },
   ];
+  
   return (
     <>
       {/* 2nd modal */}
@@ -131,7 +135,7 @@ const BankModal = () => {
               <FaList /> Rules
             </div>
             <div className="bg-secondary rounded-sm p-1">
-              <button>+ New Rule</button>
+              <button onClick={() => handleShowModal(true)}>+ New Rule</button>
             </div>
           </div>
           <div>
